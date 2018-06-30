@@ -33,10 +33,10 @@ class Product:
 
         self.browser_emulator.find_element_by_xpath\
         ('''//*[@id="ap_email"]''').send_keys(self.amazon_credential.UNAME,Keys.RETURN)
-        time.sleep(random.randint(3,8))
+        time.sleep(10)
         self.browser_emulator.find_element_by_xpath\
         ('''//*[@id="ap_password"]''').send_keys(self.amazon_credential.PASSWD,Keys.RETURN)
-        time.sleep(random.randint(3,8))
+        time.sleep(10)
         
         """ Change this URL to add another product to cart. """
         self.browser_emulator.get(self.product)
@@ -51,7 +51,7 @@ class Product:
             ('''//*[@id="priceblock_ourprice"]''')
         except:
         	self.browser_emulator.refresh()
-        	time.sleep(random.randint(3,8))
+        	time.sleep(random.randint(10,45))
         	print('It is not is Stock yet.')
         else:
             self.browser_emulator.find_element_by_xpath('//*[@id="add-to-cart-button"]').click()
