@@ -1,5 +1,6 @@
 """ Libraies need to run script."""
 from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.keys import Keys
 import time, datetime, random,sys
 from credentials import Email, User
@@ -21,7 +22,9 @@ class Product:
         """ Initializes bot and emulates selenium browser. 
         It goes to login page first. """
 
-        self.browser_emulator = webdriver.Firefox()
+        options = Options()
+        options.set_headless(headless=True)
+        self.browser_emulator = webdriver.Firefox(firefox_options=options)
         self.browser_emulator.get\
         ('''https://www.amazon.in/ap/signin?openid.assoc_handle=inflex&openid.claimed_id=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.identity=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0%2Fidentifier_select&openid.mode=checkid_setup&openid.ns=http%3A%2F%2Fspecs.openid.net%2Fauth%2F2.0''')
         

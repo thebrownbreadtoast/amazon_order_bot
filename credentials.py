@@ -7,7 +7,7 @@ class User:
 	PASSWD = 'your_password'
 
 class Email:
-	""" Class inherited from User base class, and store email credentials to notify user on product 
+	""" Class to store email credentials for notification on product 
 	availablity."""
 
 	EMAIL = 'your_email'
