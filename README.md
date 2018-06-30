@@ -13,8 +13,4 @@
   * Download [Latest Geckodrivers.](https://github.com/mozilla/geckodriver/releases)
   * Extract and copy in _/usr/local/bin_
 4. Enter your Amazon.in credentials in credentials.py
-<<<<<<< HEAD
 5. Run script by executing amazon_bot.py file, **python amazon_bot.py product-url-here**
-=======
-5. Run script by executing amazon_bot.py file, **python amazon_bot.py product-url-here**
->>>>>>> 557c028599a76338d6ac4621ed6a6e837db92861

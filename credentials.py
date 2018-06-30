@@ -12,6 +12,6 @@ class Email:
 
 	EMAIL = 'your_email'
 	EMAILPASSWD = 'your_email_password'
-	RECEIVER = ['email_of_receiver']
+	RECEIVER = 'email_of_receiver'
 	SUBJECT = 'subject of email'
 	BODY = 'body of email'
