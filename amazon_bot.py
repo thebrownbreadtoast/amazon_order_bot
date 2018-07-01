@@ -49,14 +49,36 @@ class Product:
         try:
         	self.browser_emulator.find_element_by_xpath\
             ('''//*[@id="priceblock_ourprice"]''')
+        
         except:
-        	self.browser_emulator.refresh()
-        	time.sleep(random.randint(10,45))
-        	print('It is not is Stock yet.')
+            try:
+            	self.browser_emulator.find_element_by_xpath\
+                ('''//*[@id="priceblock_dealprice"]''')
+            except:
+                try:
+                    self.browser_emulator.find_element_by_xpath\
+                    ('''//*[@id="priceblock_saleprice"]''')
+                except:
+                    pass
+                else:
+                    self.add_to_cart()
+            else:
+                self.add_to_cart()
+
         else:
-            self.browser_emulator.find_element_by_xpath('//*[@id="add-to-cart-button"]').click()
-            self.email_notification()
-            self.browser_emulator.quit()
+            self.add_to_cart()
+            
+        finally:
+            self.browser_emulator.refresh()
+            time.sleep(random.randint(10,45))
+            print('It is not is Stock yet.')
+
+    def add_to_cart(self):
+        """ Helper function to add product to cart."""
+
+        self.browser_emulator.find_element_by_xpath('//*[@id="add-to-cart-button"]').click()
+        self.email_notification()
+        self.browser_emulator.quit()
 
     def email_notification(self):
         """ Sends email to user to alert that product have been added to cart.
